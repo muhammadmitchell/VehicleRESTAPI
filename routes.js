@@ -17,4 +17,7 @@ module.exports = function(app){
 
     app.route('/ubah')
         .put(jsonku.ubahVehicle);
+
+    app.route('/hapus')
+        .delete(jsonku.hapusVehicle);
 }

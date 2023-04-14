@@ -63,3 +63,18 @@ exports.ubahVehicle = function (req, res) {
             }
         });
 };
+
+//menghapus data berdasarkan id
+exports.hapusVehicle = function (req, res) {
+    var id = req.body.id;
+
+    connection.query("DELETE from vehicle_brand WHERE id=?",
+        [id],
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil hapus Data", res)
+            }
+        });
+};
