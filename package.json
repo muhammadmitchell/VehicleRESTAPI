@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/muhammadmitchell/VehicleRESTAPI/issues"
   },
-  "homepage": "https://github.com/muhammadmitchell/VehicleRESTAPI#readme"
+  "homepage": "https://github.com/muhammadmitchell/VehicleRESTAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
 }
