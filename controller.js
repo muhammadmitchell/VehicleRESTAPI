@@ -47,3 +47,19 @@ exports.tambahVehicle = function (req, res) {
             }
         });
 };
+
+//mengubah data berdasarkan id
+exports.ubahVehicle = function (req, res) {
+    var id = req.body.id;
+    var name = req.body.name;
+
+    connection.query("UPDATE vehicle_brand SET name=? WHERE id=?",
+        [name, id],
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Ubah Data", res)
+            }
+        });
+};
