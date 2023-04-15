@@ -11,12 +11,12 @@ exports.registrasi = function(req, res) {
     var post = {
         username: req.body.username, 
         email: req.body.email,
-        password: md(req.body.password),
+        password: md5(req.body.password),
         role: req.body.role,
         register_date: new Date()
     }
 
-    var query = "SELECT email from ?? WHERE ??";
+    var query = "SELECT email from ?? WHERE ??=?";
     var table = ["users", "email", post.email];
 
     query = mysql.format(query, table);
@@ -27,7 +27,7 @@ exports.registrasi = function(req, res) {
         } else {
             if(rows.length == 0){
                 var query = "INSERT INTO ?? SET ?";
-                var table = ["user"];
+                var table = ["users"];
                 query = mysql.format(query, table);
                 connection.query(query, post, function(error, rows){
                     if(error){
@@ -37,7 +37,7 @@ exports.registrasi = function(req, res) {
                     }
                 });
             } else {
-                response.ok("Email sudah terdaftar!");
+                response.ok("Email sudah terdaftar!", res);
             }
         }
     })
