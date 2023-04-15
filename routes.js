@@ -20,4 +20,7 @@ module.exports = function(app){
 
     app.route('/hapus')
         .delete(jsonku.hapusVehicle);
+
+    app.route('/tampilmodelvehicle')
+        .get(jsonku.tampilgroupmodelvehicle)
 }
