@@ -81,7 +81,7 @@ exports.hapusVehicle = function (req, res) {
 
 //menampilkan model vehicle group 
 exports.tampilgroupmodelvehicle = function (req, res) {
-    connection.query("SELECT vehicle_model.id, vehicle_model.name, vehicle_year.year FROM price_list JOIN vehicle_model JOIN vehicle_year WHERE price_list.model_id = vehicle_model.id AND price_list.year_id = vehicle_year.id ORDER BY vehicle_model.id;",
+    connection.query("SELECT vehicle_model.id, vehicle_model.name, vehicle_model.variant, vehicle_model.fuel_type, vehicle_model.transmission_type, vehicle_year.year FROM price_list JOIN vehicle_model JOIN vehicle_year WHERE price_list.model_id = vehicle_model.id AND price_list.year_id = vehicle_year.id ORDER BY vehicle_model.id;",
         function (error, rows, fields) {
             if (error) {
                 console.log(error);
